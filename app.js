@@ -29,7 +29,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { 
-  var mul = a * b;
+  var mul = a * b ;
   var myMulstring = `The product of ${a} and ${b} is ${mul}.`
   return[mul, myMulstring];
 
@@ -109,9 +109,12 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-
-  var myResultsec = sumAndMultiply(testArray[0], testArray[1], testArray[2])[1];
-  var mysumArraystringsec = `The numbers ${testArray[0]},${testArray[1]},${testArray[2]} have a product of ${myResultsec}.`
+  var mynewIntArr = [];
+  var myResultsec = sumAndMultiply(multArr[0], multArr[1], multArr[2])[1];
+  for(var j = 0; j < multArr.length; j++){
+  mynewIntArr.push(multArr.length);
+  }
+  var mysumArraystringsec = `The numbers ${multArr} have a product of ${myResultsec}.`
   return[myResultsec, mysumArraystringsec];
 
 }
@@ -142,10 +145,21 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+  var myDynamicArrRes = 1;
 
+  for(var i = 0; i < dynamicArray.length; i++){
+    //myDynamicArr = dynamicArray[i];
+    // myInternalArr.push(myDynamicArr);
+    // myDynamicArrRes = multiplyArray(dynamicArray[i], dynamicArray[i+1])[0]; // here is my two numbers 
+    myDynamicArrRes = multiply(myDynamicArrRes, dynamicArray[i])[0];
+  }
+  
+  var myLastString = `The numbers ${dynamicArray} have a product of ${myDynamicArrRes}.`;
+  return [myDynamicArrRes, myLastString];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+// console.log(myInternalArr[0]);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
